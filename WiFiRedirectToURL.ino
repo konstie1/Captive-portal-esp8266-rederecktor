@@ -19,7 +19,7 @@ void setup() {
   dnsServer.start(DNS_PORT, "*", APIP);
 
   webServer.onNotFound([]() {
-    webServer.sendHeader("Location", "http://www.youtube.com", true);
+    webServer.sendHeader("Location", "redirectURL", true);
     webServer.send(302, "text/plain", "");
   });
 
