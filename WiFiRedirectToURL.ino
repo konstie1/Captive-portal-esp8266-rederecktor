@@ -7,6 +7,21 @@ const IPAddress APIP(172, 0, 0, 1);
 const byte DNS_PORT = 53;
 ESP8266WebServer webServer(80);
 
+// Пример HTML-шаблона
+const char* htmlTemplate = R"(
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Redirected Page</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <h1>You have been redirected!</h1>
+  <p>This is a simple redirected page.</p>
+</body>
+</html>
+)";
+
 void setup() {
   Serial.begin(115200);
 
@@ -19,8 +34,13 @@ void setup() {
   dnsServer.start(DNS_PORT, "*", APIP);
 
   webServer.onNotFound([]() {
-    webServer.sendHeader("Location", "redirectURL", true);
+    webServer.sendHeader("Location", "/redirected", true);
     webServer.send(302, "text/plain", "");
+  });
+
+  // Добавляем обработчик для страницы /redirected
+  webServer.on("/redirected", HTTP_GET, []() {
+    webServer.send(200, "text/html", htmlTemplate);
   });
 
   webServer.begin();
