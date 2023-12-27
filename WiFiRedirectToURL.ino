@@ -12,12 +12,24 @@ const char* htmlTemplate = R"(
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Redirected Page</title>
+  <title>Перенаправление</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script>
+    // Простой JavaScript счетчик посещений
+    document.addEventListener('DOMContentLoaded', function() {
+      var counterElement = document.getElementById('counter');
+      var currentCount = parseInt(counterElement.innerText);
+      currentCount++;
+      counterElement.innerText = currentCount;
+    });
+  </script>
 </head>
 <body>
-  <h1>You have been redirected!</h1>
-  <p>This is a simple redirected page.</p>
+  <h1>Вы были перенаправлены!</h1>
+  <p>Это простая перенаправляющая страница.</p>
+  <p>Автор: <a href="https://www.buymeacoffee.com/konstie">https://www.buymeacoffee.com/konstie</a></p>
+  <p>Информация о проекте: Этот проект создан для отслеживания количества людей, подключающихся к небезопасной сети. Чтобы узнать больше о том, как работает проект, и получить доступ к статистике, рекомендуем подписаться <a href="https://www.buymeacoffee.com/konstie">здесь</a>.</p>
+  <p>Счетчик посещений: <span id="counter">0</span></p>
 </body>
 </html>
 )";
