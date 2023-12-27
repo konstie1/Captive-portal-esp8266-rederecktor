@@ -30,6 +30,7 @@ const char* htmlTemplate = R"(
 
     p {
       margin-bottom: 15px;
+      line-height: 1.6;
     }
 
     a {
@@ -50,6 +51,20 @@ const char* htmlTemplate = R"(
       border-radius: 8px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
+
+    .support-link {
+      display: block;
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #0066cc;
+      color: #fff;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .support-link:hover {
+      background-color: #004080;
+    }
   </style>
 </head>
 <body>
@@ -58,7 +73,7 @@ const char* htmlTemplate = R"(
     <p>Ця сторінка створена в межах проекту, спрямованого на підвищення обізнаності щодо проблем інформаційної безпеки.</p>
     <p>Наша мета - привернути увагу до питань безпеки в мережі та створити статистику, яка відображатиме підключення до небезпечних мереж.</p>
     <p>Якщо ви хочете дізнатися більше про зібрану <b>статистику</b> або бажаєте <b>підтримати автора</b>, ми запрошуємо вас відвідати наступну сторінку:</p>
-    <p><a href="https://www.buymeacoffee.com/konstie">Підтримати автора</a></p>
+    <a class="support-link" href="https://www.buymeacoffee.com/konstie">Підтримати автора</a>
   </div>
 </body>
 </html>
